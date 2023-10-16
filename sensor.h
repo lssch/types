@@ -19,14 +19,14 @@ typedef struct _sensor_imu_t {
 
 typedef struct _sensor_vfs_t {
   struct {
-    uint8_t x;
-    uint8_t y;
+    uint8_t dx;
+    uint8_t dy;
   }__attribute__((packed)) motion;
-  uint8_t pixel[2][2];
+  uint8_t surface_quality;
 } __attribute__((packed)) sensor_vfs_t;
 
 typedef struct _sensor_tof_cam_t {
-  uint8_t pixel[2][2];
+  uint8_t pixel[100][100];
 } __attribute__((packed)) sensor_tof_cam_t;
 
 typedef struct _sensor_tof_spot_t {
