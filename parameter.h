@@ -32,9 +32,17 @@ typedef struct _parameter_car_t {
   uint8_t wheel_diameter;
 } __attribute__((packed)) parameter_car_t;
 
+typedef struct _parameter_servo_t {
+  uint8_t min_steering_angle;
+  uint8_t max_position;
+} __attribute__((packed)) parameter_servo_t;
+
+
 typedef struct _parameter_t {
   parameter_car_t car;
   parameter_mpu_t mpu;
+  parameter_car_t servo
+
 } __attribute__((packed)) parameter_t;
 
 #endif //TYPES_PARAMETER_H
