@@ -26,6 +26,22 @@ typedef struct _parameter_mpu_t {
   uint8_t gyro_calibration_samples;
 } __attribute__((packed)) parameter_mpu_t;
 
+typedef struct _rgb_t {
+  uint8_t red;
+  uint8_t green;
+  uint8_t blue;
+} __attribute__((packed)) rgb_t;
+
+typedef struct _parameter_vfs_neopixel_t {
+  bool enable;
+  rgb_t color;
+  uint8_t brightness;
+} __attribute__((packed)) parameter_vfs_neopixel_t;
+
+typedef struct _parameter_vfs_t {
+  parameter_vfs_neopixel_t neopixel;
+} __attribute__((packed)) parameter_vfs_t;
+
 typedef struct _parameter_car_t {
   uint8_t chassis_length;
   uint8_t chassis_width;
@@ -38,12 +54,18 @@ typedef struct _parameter_servo_t {
   float steering_limits;
 } __attribute__((packed)) parameter_servo_t;
 
+typedef struct _parameter_navlight_t {
+  rgb_t color_blinker;
+  rgb_t color_front;
+  rgb_t color_back
+} __attribute__((packed)) parameter_navlight_t;
 
 typedef struct _parameter_t {
   parameter_car_t car;
   parameter_mpu_t mpu;
+  parameter_vfs_t vfs;
   parameter_car_t servo;
-
+  parameter_navlight_t navlight;
 } __attribute__((packed)) parameter_t;
 
 #endif //TYPES_PARAMETER_H
