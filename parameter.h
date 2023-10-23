@@ -33,8 +33,9 @@ typedef struct _parameter_car_t {
 } __attribute__((packed)) parameter_car_t;
 
 typedef struct _parameter_servo_t {
-  uint8_t min_steering_angle;
-  uint8_t max_position;
+  float zero_position;
+  float max_steering_angle;
+  float steering_limits;
 } __attribute__((packed)) parameter_servo_t;
 
 
