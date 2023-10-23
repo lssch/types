@@ -57,7 +57,7 @@ typedef struct _parameter_servo_t {
 typedef struct _parameter_navlight_t {
   rgb_t color_blinker;
   rgb_t color_front;
-  rgb_t color_back
+  rgb_t color_back;
 } __attribute__((packed)) parameter_navlight_t;
 
 typedef struct _parameter_t {
