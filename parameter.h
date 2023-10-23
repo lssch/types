@@ -42,7 +42,7 @@ typedef struct _parameter_servo_t {
 typedef struct _parameter_t {
   parameter_car_t car;
   parameter_mpu_t mpu;
-  parameter_car_t servo
+  parameter_car_t servo;
 
 } __attribute__((packed)) parameter_t;
 
