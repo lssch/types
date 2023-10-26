@@ -49,6 +49,7 @@ typedef struct _parameter_car_t {
 } __attribute__((packed)) parameter_car_t;
 
 typedef struct _parameter_servo_t {
+  // All data in centi deg
   int16_t zero_position;
   int16_t max_steering_angle;
   int16_t steering_limits;
