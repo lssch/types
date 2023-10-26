@@ -49,15 +49,16 @@ typedef struct _parameter_car_t {
 } __attribute__((packed)) parameter_car_t;
 
 typedef struct _parameter_servo_t {
-  float zero_position;
-  float max_steering_angle;
-  float steering_limits;
+  // All data in centi deg
+  int16_t zero_position;
+  int16_t max_steering_angle;
+  int16_t steering_limits;
 } __attribute__((packed)) parameter_servo_t;
 
 typedef struct _parameter_navlight_t {
   rgb_t color_blinker;
   rgb_t color_front;
-  rgb_t color_back
+  rgb_t color_back;
 } __attribute__((packed)) parameter_navlight_t;
 
 typedef struct _parameter_t {
