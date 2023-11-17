@@ -5,39 +5,47 @@
 #ifndef TYPES_SENSOR_H
 #define TYPES_SENSOR_H
 
-typedef struct _cartesian_t {
-  float x;
-  float y;
-  float z;
-} __attribute__((packed)) cartesian_t;
+namespace Sensor {
+  class __attribute__ ((__packed__)) Cartesian {
+  public:
+    float x;
+    float y;
+    float z;
+  };
 
-typedef struct _sensor_imu_t {
-  float temperature;
-  cartesian_t accelerometer;
-  cartesian_t gyroscope;
-} __attribute__((packed)) sensor_imu_t;
+  class __attribute__ ((__packed__)) Imu {
+  public:
+    float temperature;
+    Cartesian accelerometer;
+    Cartesian gyroscope;
+  };
 
-typedef struct _sensor_vfs_t {
-  struct {
-    uint8_t dx;
-    uint8_t dy;
-  }__attribute__((packed)) motion;
-  uint8_t surface_quality;
-} __attribute__((packed)) sensor_vfs_t;
+  class __attribute__ ((__packed__)) Vfs {
+  public:
+    struct {
+      uint8_t dx;
+      uint8_t dy;
+    }__attribute__((packed)) motion;
+    uint8_t surface_quality;
+  };
 
-typedef struct _sensor_tof_cam_t {
-  uint8_t pixel[100][100];
-} __attribute__((packed)) sensor_tof_cam_t;
+  class __attribute__ ((__packed__)) TofCamera {
+  public:
+    uint8_t pixel[5][5];
+  };
 
-typedef struct _sensor_tof_spot_t {
-  float distance;
-} __attribute__((packed)) sensor_tof_spot_t;
+  class __attribute__ ((__packed__)) TofSpot {
+  public:
+    float distance;
+  };
 
-typedef struct _sensor_t {
-  sensor_imu_t imu;
-  sensor_vfs_t vsf;
-  sensor_tof_cam_t tof_cam;
-  sensor_tof_spot_t tof_spot;
-} __attribute__((packed)) sensor_t;
+  class __attribute__ ((__packed__)) Sensor {
+  public:
+    Imu imu;
+    Vfs vsf;
+    TofCamera tof_cam;
+    TofSpot tof_spot;
+  };
+}
 
 #endif //TYPES_SENSOR_H

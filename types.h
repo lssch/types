@@ -11,20 +11,21 @@
 #include "parameter.h"
 #include "state.h"
 
+
 typedef union _robocar_data_t {
   struct {
-    state_t state;
-    sensor_t sensor;
-    data_t data;
-    parameter_t parameter;
-    request_t request;
+    State::State state;
+    Sensor::Sensor sensor;
+    Data::Data data;
+    Parameter::Parameter parameter;
+    Request::Request request;
   } __attribute__((packed));
   uint8_t buffer[
-          sizeof(state_t) +
-          sizeof(sensor_t) +
-          sizeof(data_t) +
-          sizeof(parameter_t) +
-          sizeof(request_t)];
+          sizeof(State::State) +
+          sizeof(Sensor::Sensor) +
+          sizeof(Data::Data) +
+          sizeof(Parameter::Parameter) +
+          sizeof(Request::Request)];
 } robocar_data_t;
 
 #endif //TYPES_H
