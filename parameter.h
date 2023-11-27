@@ -5,56 +5,58 @@
 #ifndef TYPES_PARAMETER_H
 #define TYPES_PARAMETER_H
 
+#include <cstdint>
+
 namespace Parameter {
-  enum class ParameterMpuGyproMaxDps : uint16_t {
-    MPU6050_GYRO_MAX_DPS_PM_250 = 250,
-    MPU6050_GYRO_MAX_DPS_PM_500 = 500,
-    MPU6050_GYRO_MAX_DPS_PM_1000 = 1000,
-    MPU6050_GYRO_MAX_DPS_PM_2000 = 2000,
+  enum class ImuGyproMaxDps : uint16_t {
+    PM_250_DPS = 250,
+    PM_500_DPS = 500,
+    PM_1000_DPS = 1000,
+    PM_2000_DPS = 2000,
   };
 
-  enum class ParameterMpuAccelMaxG : uint8_t {
-    MPU6050_ACCEL_MAX_G_PM_2 = 2,
-    MPU6050_ACCEL_MAX_G_PM_4 = 4,
-    MPU6050_ACCEL_MAX_G_PM_8 = 8,
-    MPU6050_ACCEL_MAX_G_PM_16 = 16,
+  enum class ImuAccelMaxG : uint8_t {
+    PM_2G = 2,
+    PM_4G = 4,
+    PM_8G = 8,
+    PM_16G = 16,
   };
 
-  class __attribute__ ((__packed__)) Mpu {
+  class Imu {
   public:
-    ParameterMpuGyproMaxDps gyro_max_dps;
+    ImuGyproMaxDps gyro_max_dps;
     uint8_t gyro_samplerate_divisor;
-    ParameterMpuAccelMaxG accel_max_g;
+    ImuAccelMaxG accel_max_g;
     uint8_t gyro_calibration_samples;
   };
 
-  class __attribute__ ((__packed__)) Rgb {
+  class Rgb {
   public:
     uint8_t red;
     uint8_t green;
     uint8_t blue;
   };
 
-  class __attribute__ ((__packed__)) VfsNeopixel {
+  class VfsNeopixel {
   public:
     bool enable;
     Rgb color;
     uint8_t brightness;
   };
 
-  class __attribute__ ((__packed__)) Vfs {
+  class Vfs {
   public:
     VfsNeopixel neopixel;
   };
 
-  class __attribute__ ((__packed__)) Car {
+  class Car {
   public:
-    uint8_t chassis_length;
+    uint16_t chassis_length;
     uint8_t chassis_width;
     uint8_t wheel_diameter;
   };
 
-  class __attribute__ ((__packed__)) Servo {
+  class Servo {
   public:
     // All data in centi deg
     int16_t zero_position;
@@ -62,17 +64,17 @@ namespace Parameter {
     int16_t steering_limits;
   };
 
-  class __attribute__ ((__packed__)) Navlight {
+  class Navlight {
   public:
     Rgb color_blinker;
     Rgb color_front;
     Rgb color_back;
   };
 
-  class __attribute__ ((__packed__)) Parameter {
+  class Parameter {
   public:
     Car car;
-    Mpu mpu;
+    Imu imu;
     Vfs vfs;
     Servo servo;
     Navlight navlight;

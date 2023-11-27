@@ -5,8 +5,10 @@
 #ifndef TYPES_STATE_H
 #define TYPES_STATE_H
 
+#include "NeoPixel/NeoPixel.h"
+
 namespace State {
-  enum class Mpu : uint8_t {
+  enum class Imu : uint8_t {
     DISCONNECTED = 0,
     UNCALIBRATED,
     CALIBRATING,
@@ -14,13 +16,13 @@ namespace State {
     FAULT,
   };
 
-  class __attribute__ ((__packed__)) State {
+  class State {
   public:
-    Mpu mpu;
+    Imu imu;
     struct {
       uint8_t load;
       uint8_t clock;
-    } __attribute__((packed)) cpu;
+    } cpu;
   };
 }
 

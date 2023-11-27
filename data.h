@@ -6,8 +6,14 @@
 #define TYPES_DATA_H
 
 namespace Data {
-  class __attribute__ ((__packed__)) Data {
+  class Imu {
   public:
+    Sensor::Cartesian gyro_calibration_values;
+  };
+
+  class Data {
+  public:
+    Imu imu;
     uint8_t velocity;
   };
 }

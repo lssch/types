@@ -6,40 +6,40 @@
 #define TYPES_SENSOR_H
 
 namespace Sensor {
-  class __attribute__ ((__packed__)) Cartesian {
+  class Cartesian {
   public:
     float x;
     float y;
     float z;
   };
 
-  class __attribute__ ((__packed__)) Imu {
+  class Imu {
   public:
     float temperature;
     Cartesian accelerometer;
     Cartesian gyroscope;
   };
 
-  class __attribute__ ((__packed__)) Vfs {
+  class Vfs {
   public:
     struct {
       uint8_t dx;
       uint8_t dy;
-    }__attribute__((packed)) motion;
+    } motion;
     uint8_t surface_quality;
   };
 
-  class __attribute__ ((__packed__)) TofCamera {
+  class TofCamera {
   public:
     uint8_t pixel[5][5];
   };
 
-  class __attribute__ ((__packed__)) TofSpot {
+  class TofSpot {
   public:
     float distance;
   };
 
-  class __attribute__ ((__packed__)) Sensor {
+  class Sensor {
   public:
     Imu imu;
     Vfs vsf;

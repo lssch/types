@@ -6,14 +6,14 @@
 #define TYPES_REQUEST_H
 
 namespace Request {
-  class __attribute__ ((__packed__)) Request {
+  class Request {
   public:
-    uint8_t safe_parameter;
-    uint8_t mpu;
+    bool safe_parameter;
+    bool calibrate_imu;
     struct {
       int16_t throttle;
       int16_t steering;
-    } __attribute__((packed)) controls;
+    } controls;
   };
 }
 
