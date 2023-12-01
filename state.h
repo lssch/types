@@ -5,8 +5,6 @@
 #ifndef TYPES_STATE_H
 #define TYPES_STATE_H
 
-#include "NeoPixel/NeoPixel.h"
-
 namespace State {
   enum class Imu : uint8_t {
     DISCONNECTED = 0,

@@ -5,6 +5,8 @@
 #ifndef TYPES_REQUEST_H
 #define TYPES_REQUEST_H
 
+#include <cstdint>
+
 namespace Request {
   class Request {
   public:

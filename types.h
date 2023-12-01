@@ -20,11 +20,11 @@ typedef union robocar_data_t_{
     Request::Request request;
   };
   uint8_t buffer[
-    sizeof(state) +
-    sizeof(sensor) +
-    sizeof(data) +
-    sizeof(parameter) +
-    sizeof(request)];
+    sizeof(State::State) +
+    sizeof(Sensor::Sensor) +
+    sizeof(Data::Data) +
+    sizeof(Parameter::Parameter) +
+    sizeof(Request::Request)];
 } robocar_data_t;
 
 #endif //TYPES_H
