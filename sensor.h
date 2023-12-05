@@ -5,6 +5,9 @@
 #ifndef TYPES_SENSOR_H
 #define TYPES_SENSOR_H
 
+#include <ostream>
+#include <array>
+
 namespace Sensor {
   class Cartesian {
   public:
@@ -18,6 +21,8 @@ namespace Sensor {
     float temperature;
     Cartesian accelerometer;
     Cartesian gyroscope;
+
+    friend std::ostream& operator<<(std::ostream& os, const Imu& imu);
   };
 
   class Vfs {
@@ -27,16 +32,22 @@ namespace Sensor {
       uint8_t dy;
     } motion;
     uint8_t surface_quality;
+
+    friend std::ostream& operator<<(std::ostream& os, const Vfs& vfs);
   };
 
   class TofCamera {
   public:
-    uint8_t pixel[5][5];
+    std::array<std::array<uint8_t, 5>, 5> image;
+
+    friend std::ostream& operator<<(std::ostream& os, const TofCamera& tof_camera);
   };
 
   class TofSpot {
   public:
     float distance;
+
+    friend std::ostream& operator<<(std::ostream& os, const TofSpot& tof_spot);
   };
 
   class Sensor {
@@ -45,6 +56,8 @@ namespace Sensor {
     Vfs vsf;
     TofCamera tof_cam;
     TofSpot tof_spot;
+
+    friend std::ostream& operator<<(std::ostream& os, const Sensor& sensor);
   };
 }
 
