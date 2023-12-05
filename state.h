@@ -14,9 +14,17 @@ namespace State {
     FAULT,
   };
 
+  enum class Microcontroller : uint8_t {
+    UNDEFINED = 0,
+    INITIALISING,
+    RUNNING,
+    ERROR
+  };
+
   class State {
   public:
     Imu imu;
+    Microcontroller microcontroller;
     struct {
       uint8_t load;
       uint8_t clock;

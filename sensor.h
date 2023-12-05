@@ -45,7 +45,7 @@ namespace Sensor {
 
   class TofSpot {
   public:
-    float distance;
+    int distance;
 
     friend std::ostream& operator<<(std::ostream& os, const TofSpot& tof_spot);
   };
