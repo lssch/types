@@ -5,22 +5,17 @@
 #ifndef TYPES_SENSOR_H
 #define TYPES_SENSOR_H
 
+#include "types/Cartesian.h"
 #include <ostream>
 #include <array>
+#include <cstdint>
 
 namespace Sensor {
-  class Cartesian {
-  public:
-    float x;
-    float y;
-    float z;
-  };
-
   class Imu {
   public:
     float temperature;
-    Cartesian accelerometer;
-    Cartesian gyroscope;
+    Cartesian3<float> accelerometer;
+    Cartesian3<float> gyroscope;
 
     friend std::ostream& operator<<(std::ostream& os, const Imu& imu);
   };
@@ -45,7 +40,7 @@ namespace Sensor {
 
   class TofSpot {
   public:
-    int distance;
+    uint16_t distance;
 
     friend std::ostream& operator<<(std::ostream& os, const TofSpot& tof_spot);
   };

@@ -5,10 +5,12 @@
 #ifndef TYPES_DATA_H
 #define TYPES_DATA_H
 
+#include "types/Cartesian.h"
+
 namespace Data {
   class Imu {
   public:
-    Sensor::Cartesian gyro_calibration_values;
+    Cartesian3<float> gyro_calibration_values;
   };
 
   class Data {

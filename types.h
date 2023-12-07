@@ -5,11 +5,11 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include "request.h"
-#include "sensor.h"
-#include "data.h"
-#include "parameter.h"
-#include "state.h"
+#include "types/request/request.h"
+#include "types/sensor/sensor.h"
+#include "types/data/data.h"
+#include "types/parameter/parameter.h"
+#include "types/state/state.h"
 
 typedef union robocar_data_t_{
   struct {

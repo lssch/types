@@ -10,10 +10,13 @@
 namespace Request {
   class Request {
   public:
-    bool safe_parameter;
-    bool calibrate_imu;
-    struct {
-      int16_t throttle;
+    uint8_t safe_parameter;
+    uint8_t calibrate_imu;
+    uint8_t emergency_stop;
+    uint8_t emergency_stop_reset;
+    uint8_t hardware_reset;
+    struct __attribute__((packed)) {
+      int8_t throttle;
       int16_t steering;
     } controls;
   };

@@ -5,7 +5,8 @@
 #ifndef TYPES_PARAMETER_H
 #define TYPES_PARAMETER_H
 
-#include <cstdint>
+#include "types/Cartesian.h"
+#include "types/Color.h"
 
 namespace Parameter {
   enum class ImuGyproMaxDps : uint16_t {
@@ -22,7 +23,7 @@ namespace Parameter {
     PM_16G = 16,
   };
 
-  class Imu {
+  class __attribute__((packed)) Imu  {
   public:
     ImuGyproMaxDps gyro_max_dps;
     uint8_t gyro_samplerate_divisor;
@@ -30,18 +31,10 @@ namespace Parameter {
     uint8_t gyro_calibration_samples;
   };
 
-  class Rgb {
-  public:
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-  };
-
   class VfsNeopixel {
   public:
-    bool enable;
-    Rgb color;
-    uint8_t brightness;
+    uint8_t enable;
+    RGBA color;
   };
 
   class Vfs {
@@ -66,9 +59,17 @@ namespace Parameter {
 
   class Navlight {
   public:
-    Rgb color_blinker;
-    Rgb color_front;
-    Rgb color_back;
+    RGB color_blinker;
+    RGB color_front;
+    RGB color_back;
+  };
+
+  class Odometry {
+  public:
+    Cartesian3<int8_t> imu_link;
+    Cartesian3<int8_t> tof_spot_link;
+    Cartesian3<int8_t> tof_cam_link;
+    Cartesian3<int8_t> vfs_link;
   };
 
   class Parameter {
@@ -78,6 +79,7 @@ namespace Parameter {
     Vfs vfs;
     Servo servo;
     Navlight navlight;
+    Odometry odometry;
   };
 }
 
