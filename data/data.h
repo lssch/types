@@ -16,6 +16,7 @@ namespace Data {
   class Data {
   public:
     Imu imu;
+    uint16_t distance_to_target;
     uint8_t velocity;
   };
 }

@@ -59,17 +59,31 @@ namespace Parameter {
 
   class Navlight {
   public:
-    RGB color_blinker;
-    RGB color_front;
-    RGB color_back;
+    RGBA color_blinker;
+    RGBA color_front;
+    RGBA color_back;
   };
 
   class Odometry {
   public:
+    int16_t origin_to_front;
+    int16_t origin_to_back;
     Cartesian3<int8_t> imu_link;
     Cartesian3<int8_t> tof_spot_link;
     Cartesian3<int8_t> tof_cam_link;
     Cartesian3<int8_t> vfs_link;
+  };
+
+  class Distance {
+  public:
+    uint16_t setpoint_distance_to_target;
+    uint8_t positioning_error_boundaries;
+    uint16_t threshold_fine_positioning;
+  };
+
+  class OperatingModes {
+  public:
+    Distance distance;
   };
 
   class Parameter {
@@ -80,6 +94,7 @@ namespace Parameter {
     Servo servo;
     Navlight navlight;
     Odometry odometry;
+    OperatingModes operating_modes;
   };
 }
 
