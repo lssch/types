@@ -5,6 +5,7 @@
 #ifndef TYPES_REQUEST_H
 #define TYPES_REQUEST_H
 
+#include <ostream>
 #include <cstdint>
 
 namespace Request {
@@ -35,6 +36,8 @@ namespace Request {
       int8_t throttle;
       int16_t steering;
     } controls;
+
+    friend std::ostream& operator<<(std::ostream& os, const Request& request);
   };
 }
 
