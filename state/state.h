@@ -6,6 +6,13 @@
 #define TYPES_STATE_H
 
 namespace State {
+  enum class Robocar : uint8_t {
+    INITIALISING = 0,
+    RUNNING,
+    EMS,
+  };
+
+
   enum class Imu : uint8_t {
     DISCONNECTED = 0,
     UNCALIBRATED,
@@ -14,21 +21,10 @@ namespace State {
     FAULT,
   };
 
-  enum class Microcontroller : uint8_t {
-    UNDEFINED = 0,
-    INITIALISING,
-    RUNNING,
-    ERROR
-  };
-
   class State {
   public:
+    Robocar robocar;
     Imu imu;
-    Microcontroller microcontroller;
-    struct {
-      uint8_t load;
-      uint8_t clock;
-    } cpu;
   };
 }
 
