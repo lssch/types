@@ -5,11 +5,16 @@
 #ifndef CARTESIAN_H
 #define CARTESIAN_H
 
+template<typename T> class Cartesian2 {
+public:
+  T x;
+  T y;
+};
+
 template<typename T> class Cartesian3 {
 public:
   T x;
   T y;
   T z;
 };
-
 #endif //CARTESIAN_H

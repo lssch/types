@@ -17,6 +17,7 @@ namespace Data {
   public:
     Imu imu;
     uint16_t distance_to_target;
+    Cartesian2<int32_t> position;
     uint8_t velocity;
   };
 }

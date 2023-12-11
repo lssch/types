@@ -22,15 +22,15 @@ namespace Sensor {
 
   class Vfs {
   public:
-    uint8_t motion_occurred;
-    uint8_t motion_overflow;
+//    uint8_t motion_occurred;
+//    uint8_t motion_overflow;
     struct {
       int8_t dx;
       int8_t dy;
     } motion;
     uint8_t surface_quality;
-    uint16_t shutter;
-    uint8_t max_pixel_value;
+//    uint16_t shutter;
+//    uint8_t max_pixel_value;
 
     friend std::ostream& operator<<(std::ostream& os, const Vfs& vfs);
   };
