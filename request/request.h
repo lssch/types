@@ -22,16 +22,21 @@ namespace Request {
     FULL_SPEED
   };
 
+  typedef struct {
+    bool safe_parameter:1;
+    bool calibrate_imu:1;
+    bool emergency_stop:1;
+    bool hardware_reset:1;
+  } test;
+
   class Request {
   public:
     OperatingMode operating_mode;
     MaxSpeed max_speed;
-    struct {
-      bool safe_parameter:1;
-      bool calibrate_imu:1;
-      bool emergency_stop:1;
-      bool hardware_reset:1;
-    };
+    uint8_t safe_parameter;
+    uint8_t calibrate_imu;
+    uint8_t emergency_stop;
+    uint8_t hardware_reset;
     struct __attribute__((packed)) {
       int8_t throttle;
       int16_t steering;

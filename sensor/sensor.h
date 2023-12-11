@@ -22,11 +22,15 @@ namespace Sensor {
 
   class Vfs {
   public:
+    uint8_t motion_occurred;
+    uint8_t motion_overflow;
     struct {
-      uint8_t dx;
-      uint8_t dy;
+      int8_t dx;
+      int8_t dy;
     } motion;
     uint8_t surface_quality;
+    uint16_t shutter;
+    uint8_t max_pixel_value;
 
     friend std::ostream& operator<<(std::ostream& os, const Vfs& vfs);
   };
@@ -48,7 +52,7 @@ namespace Sensor {
   class Sensor {
   public:
     Imu imu;
-    Vfs vsf;
+    Vfs vfs;
     TofCamera tof_cam;
     TofSpot tof_spot;
 

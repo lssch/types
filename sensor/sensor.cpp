@@ -17,7 +17,11 @@ std::ostream &Sensor::operator<<(std::ostream &os, const Imu &imu) {
 }
 
 std::ostream &Sensor::operator<<(std::ostream &os, const Vfs &vfs) {
-  os << std::fixed << std::setprecision(2) << "motion: (" << vfs.motion.dx << ", " << vfs.motion.dy << "); surface quality: " << vfs.surface_quality;
+  os << "motion occurred: " << +vfs.motion_occurred << std::endl;
+  os << std::fixed << std::setprecision(2) << "motion: (" << +vfs.motion.dx << ", " << +vfs.motion.dy << ")" << std::endl;
+  os << "surface quality: " << +vfs.surface_quality << std::endl;
+  os << "shutter speed: " << +vfs.shutter << std::endl;
+  os << "max pix: " << +vfs.max_pixel_value << std::endl;
   return os;
 }
 
@@ -41,7 +45,7 @@ std::ostream &Sensor::operator<<(std::ostream &os, const Sensor &sensor) {
   os << "IMU:" << std::endl;
   os << "\t" << sensor.imu;
   os << "VFS:" << std::endl;
-  os << "\t" << sensor.vsf;
+  os << "\t" << sensor.vfs;
   os << "TOF-CAMERA:" << std::endl;
   os << "\t" << sensor.tof_cam;
   os << "TOF-SPOT:" << std::endl;
