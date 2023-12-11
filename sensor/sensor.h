@@ -25,8 +25,8 @@ namespace Sensor {
 //    uint8_t motion_occurred;
 //    uint8_t motion_overflow;
     struct {
-      int8_t dx;
-      int8_t dy;
+      float dx;
+      float dy;
     } motion;
     uint8_t surface_quality;
 //    uint16_t shutter;
