@@ -18,7 +18,7 @@ std::ostream &Sensor::operator<<(std::ostream &os, const Imu &imu) {
 
 std::ostream &Sensor::operator<<(std::ostream &os, const Vfs &vfs) {
   //os << "motion occurred: " << +vfs.motion_occurred << std::endl;
-  os << std::fixed << std::setprecision(2) << "motion: (" << +vfs.motion.dx << ", " << +vfs.motion.dy << ")" << std::endl;
+  os << std::fixed << std::setprecision(2) << "motion: (" << +vfs.motion.x << ", " << +vfs.motion.x << ")" << std::endl;
   os << "surface quality: " << +vfs.surface_quality << " %" << std::endl;
   //os << "shutter speed: " << +vfs.shutter << std::endl;
   //os << "max pix: " << +vfs.max_pixel_value << std::endl;

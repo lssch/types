@@ -24,10 +24,7 @@ namespace Sensor {
   public:
 //    uint8_t motion_occurred;
 //    uint8_t motion_overflow;
-    struct {
-      float dx;
-      float dy;
-    } motion;
+    Cartesian2<int8_t> motion;
     uint8_t surface_quality;
 //    uint16_t shutter;
 //    uint8_t max_pixel_value;
