@@ -36,11 +36,11 @@ std::ostream &Request::operator<<(std::ostream &os, const Request& request) {
   }
   os << std::endl;
 
-  os << "save parameter: " << request.safe_parameter << std::endl;
-  os << "calibrate imu: " << request.calibrate_imu << std::endl;
-  os << "emergency stop: " << request.emergency_stop << std::endl;
-  os << "hardware reset: " << request.hardware_reset << std::endl;
-  os << "controls (steering, throttle): (" << + request.controls.steering << ", " << +request.controls.throttle << ")" << std::endl;
+  os << "save parameter: " << +request.safe_parameter << std::endl;
+  os << "calibrate imu: " << +request.calibrate_imu << std::endl;
+  os << "emergency stop: " << +request.emergency_stop << std::endl;
+  os << "hardware reset: " << +request.hardware_reset << std::endl;
+  os << "controls (steering, throttle): (" << +request.controls.steering << ", " << +request.controls.throttle << ")" << std::endl;
 
   return os;
 }

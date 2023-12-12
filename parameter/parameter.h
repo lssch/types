@@ -39,6 +39,8 @@ namespace Parameter {
 
   class Vfs {
   public:
+    uint8_t height;
+    float tan_fov;
     uint8_t led_shutter;
     uint8_t high_resolution;
     VfsNeopixel neopixel;

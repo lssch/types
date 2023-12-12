@@ -6,6 +6,7 @@
 #define TYPES_DATA_H
 
 #include "types/Cartesian.h"
+#include <ostream>
 
 namespace Data {
   class Imu {
@@ -19,6 +20,8 @@ namespace Data {
     uint16_t distance_to_target;
     Cartesian2<float> position;
     uint8_t velocity;
+
+    friend std::ostream& operator<<(std::ostream& os, const Data& data);
   };
 }
 

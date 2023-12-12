@@ -5,6 +5,9 @@
 #ifndef TYPES_STATE_H
 #define TYPES_STATE_H
 
+#include <cstdint>
+#include <ostream>
+
 namespace State {
   enum class Robocar : uint8_t {
     INITIALISING = 0,
@@ -25,6 +28,8 @@ namespace State {
   public:
     Robocar robocar;
     Imu imu;
+
+    friend std::ostream& operator<<(std::ostream& os, const State& state);
   };
 }
 
