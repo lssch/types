@@ -37,7 +37,7 @@ namespace Parameter {
     RGBA color;
   };
 
-  class Vfs {
+  class __attribute__((packed)) Vfs  {
   public:
     uint8_t height;
     float tan_fov;
@@ -53,7 +53,7 @@ namespace Parameter {
     uint8_t wheel_diameter;
   };
 
-  class Servo {
+  class __attribute__((packed)) Servo {
   public:
     // All data in centi deg
     int16_t zero_position;

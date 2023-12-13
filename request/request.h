@@ -37,6 +37,7 @@ namespace Request {
     uint8_t calibrate_imu;
     uint8_t emergency_stop;
     uint8_t hardware_reset;
+    uint8_t reset_odomety;
     struct __attribute__((packed)) {
       int8_t throttle;
       int16_t steering;
