@@ -40,7 +40,7 @@ std::ostream &Request::operator<<(std::ostream &os, const Request& request) {
   os << "calibrate imu: " << +request.calibrate_imu << std::endl;
   os << "emergency stop: " << +request.emergency_stop << std::endl;
   os << "hardware reset: " << +request.hardware_reset << std::endl;
+  os << "reset odometry:" << +request.reset_odomety << std::endl;
   os << "controls (steering, throttle): (" << +request.controls.steering << ", " << +request.controls.throttle << ")" << std::endl;
-
   return os;
 }

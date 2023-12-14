@@ -31,22 +31,16 @@ namespace Parameter {
     uint8_t gyro_calibration_samples;
   };
 
-  class VfsNeopixel {
-  public:
-    uint8_t enable;
-    RGBA color;
-  };
-
-  class __attribute__((packed)) Vfs  {
+  class __attribute__((packed)) Vfs {
   public:
     uint8_t height;
-    float tan_fov;
+    uint8_t measured_target_length;
     uint8_t led_shutter;
     uint8_t high_resolution;
-    VfsNeopixel neopixel;
+    RGBA light_color;
   };
 
-  class Car {
+  class __attribute__((packed)) Car {
   public:
     uint16_t chassis_length;
     uint8_t chassis_width;
@@ -61,14 +55,14 @@ namespace Parameter {
     int16_t steering_limits;
   };
 
-  class Navlight {
+  class __attribute__((packed)) Navlight {
   public:
     RGBA color_blinker;
     RGBA color_front;
     RGBA color_back;
   };
 
-  class Odometry {
+  class __attribute__((packed)) Odometry {
   public:
     int16_t origin_to_front;
     int16_t origin_to_back;
@@ -78,19 +72,19 @@ namespace Parameter {
     Cartesian3<int8_t> vfs_link;
   };
 
-  class Distance {
+  class __attribute__((packed)) Distance {
   public:
     uint16_t setpoint_distance_to_target;
     uint8_t positioning_error_boundaries;
     uint16_t threshold_fine_positioning;
   };
 
-  class OperatingModes {
+  class __attribute__((packed)) OperatingModes {
   public:
     Distance distance;
   };
 
-  class Parameter {
+  class __attribute__((packed)) Parameter {
   public:
     Car car;
     Imu imu;
