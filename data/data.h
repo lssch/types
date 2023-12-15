@@ -19,7 +19,7 @@ namespace Data {
     Imu imu;
     uint16_t distance_to_target;
     Cartesian2<float> position;
-    uint8_t velocity;
+    Cartesian2<float> velocity;
 
     friend std::ostream& operator<<(std::ostream& os, const Data& data);
   };
