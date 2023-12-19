@@ -22,8 +22,6 @@ namespace Request {
     FULL_SPEED
   };
 
-
-
   class __attribute__((packed)) Request {
   public:
     OperatingMode operating_mode;

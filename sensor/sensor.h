@@ -30,7 +30,7 @@ namespace Sensor {
 
   class TofCamera {
   public:
-    std::array<std::array<uint8_t, 5>, 5> image;
+    std::array<std::array<uint8_t, 50>, 50> image;
 
     friend std::ostream& operator<<(std::ostream& os, const TofCamera& tof_camera);
   };
