@@ -17,7 +17,7 @@ namespace Data {
   class __attribute__((packed)) Data {
   public:
     Imu imu;
-    uint16_t distance_to_target;
+    int16_t distance_to_target;
     Cartesian2<float> position;
     Cartesian2<float> velocity;
 

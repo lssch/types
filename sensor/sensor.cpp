@@ -36,7 +36,7 @@ std::ostream &Sensor::operator<<(std::ostream &os, const TofCamera &tof_camera) 
   return os;
 }
 
-std::ostream &Sensor  ::operator<<(std::ostream &os, const TofSpot &tof_spot) {
+std::ostream &Sensor::operator<<(std::ostream &os, const TofSpot &tof_spot) {
   os << "Distance: " << tof_spot.distance << " mm";
   return os;
 }

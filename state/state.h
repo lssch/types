@@ -15,7 +15,6 @@ namespace State {
     EMS,
   };
 
-
   enum class Imu : uint8_t {
     DISCONNECTED = 0,
     UNCALIBRATED,
