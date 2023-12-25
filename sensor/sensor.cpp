@@ -26,18 +26,45 @@ std::ostream &Sensor::operator<<(std::ostream &os, const Vfs &vfs) {
 }
 
 std::ostream &Sensor::operator<<(std::ostream &os, const TofCamera &tof_camera) {
-  os << "Image: ";
-  for (int y = 0; y < 5; ++y) {
-    for (int x = 0; x < 5; ++x) {
-      os << std::setw(2) << std::setfill(' ') << +tof_camera.image.at(x).at(y) << ", ";
+  os << "image: {" << std::endl;
+  for (int y = 0; y < 25; ++y) {
+    for (int x = 0; x < 25; ++x) {
+      os << std::setw(2) << std::setfill(' ') << +tof_camera.pixels.at(x).at(y) << ", ";
     }
-    os << std::endl;
+    os <<"}" << std::endl;
   }
   return os;
 }
 
 std::ostream &Sensor::operator<<(std::ostream &os, const TofSpot &tof_spot) {
-  os << "Distance: " << tof_spot.distance << " mm";
+  os << "distance: " << std::dec << +tof_spot.distance << " mm; ";
+  os << "error code: ";
+  switch (tof_spot.error_code) {
+    case TofSpotErrorCode::VALID_DATA:
+      os << "VALID_DATA";
+      break;
+    case TofSpotErrorCode::VCSEL_SHORT:
+      os << "VCSEL_SHORT";
+      break;
+    case TofSpotErrorCode::LOW_SIGNAL:
+      os << "LOW_SIGNAL";
+      break;
+    case TofSpotErrorCode::LOW_SN:
+      os << "LOW_SN";
+      break;
+    case TofSpotErrorCode::TOO_MUCH_AMB:
+      os << "TOO_MUCH_AMB";
+      break;
+    case TofSpotErrorCode::WAF:
+      os << "WAF";
+      break;
+    case TofSpotErrorCode::CAL_ERROR:
+      os << "CAL_ERROR";
+      break;
+    case TofSpotErrorCode::CROSSTALK_ERROR:
+      os << "CROSSTALK_ERROR";
+      break;
+  }
   return os;
 }
 
