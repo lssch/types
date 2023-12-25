@@ -11,7 +11,7 @@
 #include <cstdint>
 
 namespace Sensor {
-  class Imu {
+  class __attribute__((packed)) Imu {
   public:
     float temperature;
     Cartesian3<float> accelerometer;
@@ -20,7 +20,7 @@ namespace Sensor {
     friend std::ostream& operator<<(std::ostream& os, const Imu& imu);
   };
 
-  class Vfs {
+  class __attribute__((packed)) Vfs {
   public:
     Cartesian2<float> motion;
     uint8_t surface_quality;
@@ -28,7 +28,7 @@ namespace Sensor {
     friend std::ostream& operator<<(std::ostream& os, const Vfs& vfs);
   };
 
-  class TofCamera {
+  class __attribute__((packed)) TofCamera {
   public:
     std::array<std::array<uint8_t, 1>, 1> pixels;
 
@@ -46,7 +46,7 @@ namespace Sensor {
     CROSSTALK_ERROR = 0x80,
   };
 
-  class TofSpot {
+  class __attribute__((packed)) TofSpot {
   public:
     uint16_t distance;
     TofSpotErrorCode error_code;
@@ -54,7 +54,7 @@ namespace Sensor {
     friend std::ostream& operator<<(std::ostream& os, const TofSpot& tof_spot);
   };
 
-  class Sensor {
+  class __attribute__((packed)) Sensor {
   public:
     Imu imu;
     Vfs vfs;
