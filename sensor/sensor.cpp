@@ -27,8 +27,8 @@ std::ostream &Sensor::operator<<(std::ostream &os, const Vfs &vfs) {
 
 std::ostream &Sensor::operator<<(std::ostream &os, const TofCamera &tof_camera) {
   os << "image: {" << std::endl;
-  for (int y = 0; y < 25; ++y) {
-    for (int x = 0; x < 25; ++x) {
+  for (int y = 0; y < 1; ++y) {
+    for (int x = 0; x < 1; ++x) {
       os << std::setw(2) << std::setfill(' ') << +tof_camera.pixels.at(x).at(y) << ", ";
     }
     os <<"}" << std::endl;
