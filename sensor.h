@@ -35,21 +35,9 @@ namespace Sensor {
     friend std::ostream& operator<<(std::ostream& os, const TofCamera& tof_camera);
   };
 
-  enum class TofSpotErrorCode : uint8_t {
-    VALID_DATA = 0x00,
-    VCSEL_SHORT = 0x01,
-    LOW_SIGNAL = 0x02,
-    LOW_SN = 0x04,
-    TOO_MUCH_AMB = 0x08,
-    WAF = 0x10,
-    CAL_ERROR = 0x20,
-    CROSSTALK_ERROR = 0x80,
-  };
-
   class __attribute__((packed)) TofSpot {
   public:
     uint16_t distance;
-    TofSpotErrorCode error_code;
 
     friend std::ostream& operator<<(std::ostream& os, const TofSpot& tof_spot);
   };

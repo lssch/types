@@ -39,6 +39,35 @@ std::ostream &State::operator<<(std::ostream &os, const State &state) {
   }
   os << std::endl;
 
+  os << "TOF-SPOT: ";
+  switch (state.tof_spot) {
+    case TofSpot::VALID_DATA:
+      os << "VALID_DATA";
+      break;
+    case TofSpot::VCSEL_SHORT:
+      os << "VCSEL_SHORT";
+      break;
+    case TofSpot::LOW_SIGNAL:
+      os << "LOW_SIGNAL";
+      break;
+    case TofSpot::LOW_SN:
+      os << "LOW_SN";
+      break;
+    case TofSpot::TOO_MUCH_AMB:
+      os << "TOO_MUCH_AMB";
+      break;
+    case TofSpot::WAF:
+      os << "WAF";
+      break;
+    case TofSpot::CAL_ERROR:
+      os << "CAL_ERROR";
+      break;
+    case TofSpot::CROSSTALK_ERROR:
+      os << "CROSSTALK_ERROR";
+      break;
+  }
+  os << std::endl;
+
   return os;
 }
 
